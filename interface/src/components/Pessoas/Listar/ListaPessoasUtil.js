@@ -26,4 +26,13 @@ export default class ListaPessoasUtil {
         return telefone.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
     };
 
+    /**
+     * Converte a altura em metros e fixa 2 dígitos
+     * @param {*} altura 
+     * @returns altura formatada em metros
+     */
+    formatarAltura = (altura) => {
+        return (altura / 100).toFixed(2);
+    }    
+
 }

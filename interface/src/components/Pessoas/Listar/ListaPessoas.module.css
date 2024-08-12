@@ -1,0 +1,35 @@
+.pTable {
+    margin: 0 auto;
+    width: 80%;
+}
+
+.pTableHead {
+    text-align: center;
+    color: #117a65;
+}
+
+.pTableHeadTr {
+    border-bottom: 4px solid #117a65;
+}
+
+.pTableBody {
+    text-align: center;
+}
+
+.pTableBodyTr {
+    border-bottom: 1px inset;
+}
+
+.pTableBodyStrings {
+    text-align: left;
+}
+
+.pTableBodyButtons {
+    color: #117a65;
+}
+
+.loadingParagrafer {
+    text-align: center;
+    font-size: 36px;
+    color: grey;
+}

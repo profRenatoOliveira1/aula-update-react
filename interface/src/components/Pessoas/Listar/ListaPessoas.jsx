@@ -3,6 +3,7 @@ import PessoasRequests from "../../../fetch/PessoasRequests";
 import ListaPessoasUtil from "./ListaPessoasUtil";
 import { FaTrashCan } from "react-icons/fa6";
 import { AiFillEdit } from "react-icons/ai";
+import style from './ListaPessoas.module.css';
 
 function ListaPessoas() {
     const [pessoas, setPessoas] = useState([]);
@@ -25,9 +26,9 @@ function ListaPessoas() {
         <>
             <div>
                 {pessoas.length > 0 ? (
-                    <table style={{ margin: '0 auto', width: '75%'}}>
-                        <thead>
-                            <tr style={{ borderBottom: '4px solid'}}>
+                    <table className={style.pTable}>
+                        <thead className={style.pTableHead}>
+                            <tr className={style.pTableHeadTr}>
                                 <th hidden>ID</th>
                                 <th>NOME</th>
                                 <th>CPF</th>
@@ -38,30 +39,29 @@ function ListaPessoas() {
                                 <th>PESO</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody className={style.pTableBody}>
                             {pessoas.map(pessoa => (
-                                <tr key={pessoa.id} style={{ borderBottom: '1px solid'}}>
+                                <tr key={pessoa.id} className={style.pTableBodyTr}>
                                     <td hidden>{pessoa.id}</td>
-                                    <td>{pessoa.nome}</td>
+                                    <td className={style.pTableBodyStrings}>{pessoa.nome}</td>
                                     <td>{util.formatarCPF(pessoa.cpf)}</td>
                                     <td>{util.formatarData(pessoa.data_nascimento)}</td>
                                     <td>{util.formatarTelefone(pessoa.telefone)}</td>
-                                    <td>{pessoa.endereco}</td>
-                                    <td>{pessoa.altura}</td>
+                                    <td className={style.pTableBodyStrings}>{pessoa.endereco}</td>
+                                    <td>{util.formatarAltura(pessoa.altura)}</td>
                                     <td>{pessoa.peso}</td>
                                     <td>
-                                        <FaTrashCan  onClick={() => alert('deletar')}/>
+                                        <FaTrashCan  onClick={() => alert('deletar')} className={style.pTableBodyButtons}/>
                                     </td>
                                     <td>
-                                        <AiFillEdit  onClick={() => alert('atualizar')}/>
+                                        <AiFillEdit  onClick={() => alert('atualizar')} className={style.pTableBodyButtons}/>
                                     </td>
                                 </tr>
                             ))}
                         </tbody>
                     </table>
                 ) : (
-                    // Exibe uma mensagem de carregamento enquanto os dados estão sendo buscados
-                    <p>Carregando...</p>
+                    <p className={style.loadingParagrafer}>Carregando...</p>
                 )}
             </div>
         </>

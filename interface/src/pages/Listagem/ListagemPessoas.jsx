@@ -1,12 +1,13 @@
 import NavBar from "../../components/NavBar/NavBar";
 import ListaPessoas from "../../components/Pessoas/Listar/ListaPessoas";
+import style from './ListagemPessoas.module.css';
 
 function ListagemPessoas() {
     return (
         <>
             <NavBar />
             <div>
-                <h1 style={{ textAlign: 'center', marginTop: '30px', marginBottom: '15px'}}>Lista de Pessoas</h1>
+                <h1 className={style.header}>Lista de Pessoas</h1>
                 <ListaPessoas />
             </div>
         </>
