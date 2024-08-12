@@ -1,0 +1,40 @@
+
+GET http://localhost:3000/ HTTP/1.1
+
+###
+
+GET http://localhost:3000/pessoas/ HTTP/1.1
+
+###
+
+POST http://localhost:3000/cadastro/ HTTP/1.1
+Content-Type: application/json
+
+{
+    "nome": "Rodrigo Lucca Ferreira",
+    "cpf": "93414372967",
+    "data_nascimento": "2004-05-19",
+    "telefone": "83997887918",
+    "endereco": "Rua Jurandir Ribeiro de Oliveira, 965",
+    "altura": "189",
+    "peso": "67"
+}
+
+###
+
+PUT http://localhost:3000/atualizar?id=1 HTTP/1.1
+Content-Type: application/json
+
+{
+    "nome": "Rodrigo Lucca Ferreira Souza",
+    "cpf": "93414372988",
+    "data_nascimento": "2004-05-19",
+    "telefone": "83997887918",
+    "endereco": "Avenida Jurandir Ribeiro de Oliveira, 965",
+    "altura": "189",
+    "peso": "67"
+}
+
+###
+
+DELETE http://localhost:3000/deletar?id=1

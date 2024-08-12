@@ -1,0 +1,20 @@
+GET http://localhost:3000/pessoas/ HTTP/1.1
+
+###
+GET http://localhost:3000/pessoa/Diogo HTTP/1.1
+
+###
+POST http://localhost:3000/cadastro HTTP/1.1
+Content-Type: application/json
+
+{
+	"nome": "Ana Clara Aventura Silva e Silva",
+	"cpf": "00000000011",
+	"data_nascimento": "1930-03-10",
+	"telefone": "1234567890",
+	"endereco": "Rua Antônio Candeia, 425",
+	"altura": 120,
+	"peso": 30
+}
+
+###
