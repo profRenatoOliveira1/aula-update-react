@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Arquivos de testes
+*test.js
+*test.jsx
+*test.ts
+*test.tsx

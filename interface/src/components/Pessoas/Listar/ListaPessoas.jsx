@@ -22,6 +22,10 @@ function ListaPessoas() {
         fetchPessoas();
     }, []);
 
+    // useEffect(async () => {
+    //     setPessoas(await util.fetchPessoas());
+    // }, []);
+
     return (
         <>
             <div>

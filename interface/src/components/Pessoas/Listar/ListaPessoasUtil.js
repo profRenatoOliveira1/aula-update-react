@@ -1,4 +1,16 @@
+import PessoasRequests from "../../../fetch/PessoasRequests";
+
 export default class ListaPessoasUtil {
+    
+    async fetchPessoas() {
+        try {
+            const pessoas = await PessoasRequests.listarPessoas();
+            return pessoas;
+        } catch (error) {
+            console.error('Erro ao buscar alunos: ', error);
+        }
+    }
+    
     /**
      * Formata datas no padrão brasileiro
      * @param {*} data 
