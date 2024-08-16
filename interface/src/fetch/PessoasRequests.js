@@ -3,8 +3,8 @@ class PessoasRequests {
         this.serverUrl = 'http://localhost:3000';
         this.routeCadastrarPessoa = '/cadastro';
         this.routeListarPessoas = '/pessoas';
-        this.routeRemoverPessoa = '/atualizar';
-        this.routeAtualizarPessoa = '/deletar';
+        this.routeRemoverPessoa = '/deletar';
+        this.routeAtualizarPessoa = '/atualizar';
     }
 
     async listarPessoas() {
@@ -64,6 +64,8 @@ class PessoasRequests {
     // }
 
     async atualizarPessoa(pessoa) {
+        console.log(pessoa);
+        
         try {
             const response = await fetch(`${this.serverUrl}${this.routeAtualizarPessoa}?id=${pessoa.id}`, {
                 method: 'PUT',
