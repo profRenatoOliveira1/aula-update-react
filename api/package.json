@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node .\\dist\\controller\\app.js",
+    "start": "node .\\dist\\app.js",
     "nodemon": "nodemon",
-    "dev": "npx tsc && node .\\dist\\controller\\server\\server.js",
+    "dev": "npx tsc && node .\\dist\\app.js",
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -1,10 +1,16 @@
+import { clearScreenDown } from "readline";
+import { DatabaseModel } from "./DatabaseModel";
+import { log } from "console";
+
+const database = new DatabaseModel().pool;
+
 export class Pessoa {
 
     // atributos da classe
     private id: number = 0;
     private nome: string;
     private cpf: string;
-    private data_nascimento: Date;
+    private dataNascimento: Date;
     private telefone: string;
     private endereco: string;
     private altura: number;
@@ -14,7 +20,7 @@ export class Pessoa {
     public constructor (_nome: string, _cpf: string, _data_nascimento: Date, _telefone: string, _endereco: string, _altura: number, _peso: number) {
             this.nome = _nome;
             this.cpf = _cpf;
-            this.data_nascimento = _data_nascimento;
+            this.dataNascimento = _data_nascimento;
             this.telefone = _telefone;
             this.endereco = _endereco;
             this.altura = _altura;
@@ -63,11 +69,11 @@ export class Pessoa {
     }
 
     public getDataNascimento() {
-        return this.data_nascimento;
+        return this.dataNascimento;
     }
 
     public setDataNascimento(_data_nascimento: Date) {
-        this.data_nascimento = _data_nascimento;
+        this.dataNascimento = _data_nascimento;
     }
 
     public getTelefone() {
@@ -108,36 +114,61 @@ export class Pessoa {
         this.peso = _peso;
     }
 
-    public mostraPessoa() {
-        console.log(`Nome: ${this.nome}\nCPF: ${this.cpf}\nData de nascimento: ${this.data_nascimento.getUTCDate()}/${this.data_nascimento.getMonth()+1}/${this.data_nascimento.getFullYear()}\nTelefone: ${this.telefone}\nEndereço: ${this.endereco}\nAltura: ${this.altura}\nPeso: ${this.peso}`);
+    static async listarPessoas(): Promise<Array<Pessoa> | null> {
+        const listaPessoas: Array<Pessoa> = [];
+        const querySelectPessoas = `SELECT * FROM pessoas`;
+
+        try {
+            const queryReturn = await database.query(querySelectPessoas);
+
+            queryReturn.rows.forEach((linha) => {
+                const pessoa = new Pessoa(
+                    linha.nome,
+                    linha.cpf,
+                    new Date(linha.data_nascimento),
+                    linha.telefone,
+                    linha.endereco,
+                    parseInt(linha.altura),
+                    parseInt(linha.peso)
+                );
+                pessoa.setId(linha.id);
+
+                listaPessoas.push(pessoa);
+            });
+
+            return listaPessoas;
+        } catch (error) {
+            console.error(`Erro no modelo: ${error}`);
+            return null;
+        }
     }
 
-    // implementar os métodos
-    public falar():void {
-        // lógica de negócio
-        console.log(`${this.nome} está falando...`);
-    }
+    static async atualizarCadastroPessoa(pessoa: Pessoa): Promise<Boolean> {      
+        let queryResult = false;
+        try {
+            const queryUpdatePessoa = `UPDATE pessoas
+                                            SET nome = '${pessoa.nome.toUpperCase()}', 
+                                            cpf = '${pessoa.cpf}', 
+                                            data_nascimento = '${pessoa.dataNascimento.getFullYear()}-${pessoa.dataNascimento.getMonth() + 1}-${pessoa.dataNascimento.getDate() + 1}', 
+                                            telefone = '${pessoa.telefone}', 
+                                            endereco = '${pessoa.endereco.toUpperCase()}', 
+                                            altura = ${pessoa.altura}, 
+                                            peso = ${pessoa.peso}
+                                        WHERE id = ${pessoa.id}`;
 
-    public falarFrase(_frase: string):void {
-        //lógica de negócio
-        console.log(`${this.nome} fala: ${_frase}`);
-    }
+            console.log(queryUpdatePessoa);
+            
+            await database.query(queryUpdatePessoa)
+            .then((result) => {
+                if(result.rowCount != 0) {
+                    queryResult = true;
+                }
+            });
 
-    public andar():void {
-        console.log(`${this.nome} está andando...`);
-    }
-
-    public andarQuilometros(quilometros: number):void {
-        setTimeout(() => {
-            console.log(`${this.nome} caminhou ${quilometros} quilometros`);
-        }, 3000);
-    }
-
-    public comer(): void {
-        console.log(`${this.nome} está comendo...`);
-    }
-
-    public comerPrato(prato: string):void {
-        console.log(`${this.nome} está comendo ${prato}`);
+            return queryResult;
+        } catch (error) {
+            console.error(`Erro ao atualizar pessoa: ${error}`);
+            return queryResult;
+        }
     }
 }
