@@ -21,61 +21,61 @@ function AtualizarPessoa() {
 
     return (
         <>
-            <h1>Atualizar Aluno</h1>
+            <h1>Atualizar Pessoa</h1>
             <form onSubmit={handleSubmit}>
                 <label>
                     <input
                         type="text"
-                        name="nomeAluno"
-                        value={pessoa.nomeAluno}
+                        name="nome"
+                        value={pessoa.nome}
                         onChange={handleChange}
                     />
                 </label>
                 <label>
                     <input
                         type="number"
-                        name="cpfAluno"
-                        value={pessoa.cpfAluno}
+                        name="cpf"
+                        value={pessoa.cpf}
                         onChange={handleChange}
                     />
                 </label>
                 <label>
                     <input
                         type="date"
-                        name="dataNascimentoAluno"
-                        value={pessoa.dataNascimentoAluno}
+                        name="dataNascimento"
+                        value={pessoa.dataNascimento}
                         onChange={handleChange}
                     />
                 </label>
                 <label>
                     <input
                         type="number"
-                        name="telefoneAluno"
-                        value={pessoa.telefoneAluno}
+                        name="telefone"
+                        value={pessoa.telefone}
                         onChange={handleChange}
                     />
                 </label>
                 <label>
                     <input
                         type="text"
-                        name="enderecoAluno"
-                        value={pessoa.enderecoAluno}
+                        name="endereco"
+                        value={pessoa.endereco}
                         onChange={handleChange}
                     />
                 </label>
                 <label>
                     <input
                         type="number"
-                        name="alturaAluno"
-                        value={pessoa.alturaAluno}
+                        name="altura"
+                        value={pessoa.altura}
                         onChange={handleChange}
                     />
                 </label>
                 <label>
                     <input
                         type="number"
-                        name="pesoAluno"
-                        value={pessoa.pesoAluno}
+                        name="peso"
+                        value={pessoa.peso}
                         onChange={handleChange}
                     />
                 </label>

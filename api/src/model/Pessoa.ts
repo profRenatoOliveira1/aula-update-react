@@ -155,8 +155,6 @@ export class Pessoa {
                                             altura = ${pessoa.altura}, 
                                             peso = ${pessoa.peso}
                                         WHERE id = ${pessoa.id}`;
-
-            console.log(queryUpdatePessoa);
             
             await database.query(queryUpdatePessoa)
             .then((result) => {

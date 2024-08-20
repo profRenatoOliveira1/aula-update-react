@@ -6,7 +6,7 @@ dotenv.config();
 
 // Definindo a porta onde o servidor vai
 // escutar as requisições
-const port: number = 3333;
+const port: number = parseInt(process.env.SERVER_PORT as string);
 
 // Executando o servidor
 // Testa a conexão com o banco de dados
