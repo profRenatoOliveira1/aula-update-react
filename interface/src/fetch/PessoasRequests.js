@@ -1,6 +1,6 @@
 class PessoasRequests {
     constructor() {
-        this.serverUrl = 'http://localhost:3000';
+        this.serverUrl = 'http://localhost:3333';
         this.routeCadastrarPessoa = '/cadastro';
         this.routeListarPessoas = '/pessoas';
         this.routeRemoverPessoa = '/deletar';

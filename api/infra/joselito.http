@@ -1,0 +1,18 @@
+GET http://localhost:3333/pessoas
+
+###
+
+PUT http://localhost:3333/atualizar?id=1 
+Content-Type: application/json
+
+{
+    "nome": "teste de update em aula",
+    "cpf": "65680749155",
+    "dataNascimento": "1998-04-13",
+    "telefone": "38988727840",
+    "endereco": "Avenida Vicente Mota, 976",
+    "altura": 150,
+    "peso": 80
+}
+
+###
