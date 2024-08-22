@@ -1,5 +1,5 @@
 // imports
-
+import './AtualizarPessoa.css';
 /**
  * Componente com o formulário para atualizar os dados do aluno
  */
@@ -24,61 +24,73 @@ function AtualizarPessoa() {
             <h1>Atualizar Pessoa</h1>
             <form onSubmit={handleSubmit}>
                 <label>
+                    Nome
                     <input
                         type="text"
                         name="nome"
-                        value={pessoa.nome}
+                        // value={pessoa.nome}
                         onChange={handleChange}
                     />
                 </label>
                 <label>
+                    CPF
                     <input
                         type="number"
                         name="cpf"
-                        value={pessoa.cpf}
+                        // value={pessoa.cpf}
                         onChange={handleChange}
                     />
                 </label>
+                <div className='group'>
+                    <label>
+                        Data de Nascimento
+                        <input
+                            type="date"
+                            name="dataNascimento"
+                            // value={pessoa.dataNascimento}
+                            onChange={handleChange}
+                            style={{ width: '85%' }}
+                        />
+                    </label>
+                    <label>
+                        Telefone
+                        <input
+                            type="number"
+                            name="telefone"
+                            // value={pessoa.telefone}
+                            onChange={handleChange}
+                        />
+                    </label>
+                </div>
                 <label>
-                    <input
-                        type="date"
-                        name="dataNascimento"
-                        value={pessoa.dataNascimento}
-                        onChange={handleChange}
-                    />
-                </label>
-                <label>
-                    <input
-                        type="number"
-                        name="telefone"
-                        value={pessoa.telefone}
-                        onChange={handleChange}
-                    />
-                </label>
-                <label>
+                    Endereço
                     <input
                         type="text"
                         name="endereco"
-                        value={pessoa.endereco}
+                        // value={pessoa.endereco}
                         onChange={handleChange}
                     />
                 </label>
-                <label>
-                    <input
-                        type="number"
-                        name="altura"
-                        value={pessoa.altura}
-                        onChange={handleChange}
-                    />
-                </label>
-                <label>
-                    <input
-                        type="number"
-                        name="peso"
-                        value={pessoa.peso}
-                        onChange={handleChange}
-                    />
-                </label>
+                <div className='group'>
+                    <label>
+                        Altura
+                        <input
+                            type="number"
+                            name="altura"
+                            // value={pessoa.altura}
+                            onChange={handleChange}
+                        />
+                    </label>
+                    <label>
+                        Peso
+                        <input
+                            type="number"
+                            name="peso"
+                            // value={pessoa.peso}
+                            onChange={handleChange}
+                        />
+                    </label>
+                </div>
                 <button type="submit">Enviar</button>
             </form>
         </>

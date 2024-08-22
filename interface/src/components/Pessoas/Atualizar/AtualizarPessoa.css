@@ -51,3 +51,8 @@ button {
         padding: 15px;
     }
 }
+
+.group {
+    display: flex;
+    justify-content: space-between;
+}
