@@ -49,7 +49,7 @@ function ListaPessoas() {
                                     <td hidden>{pessoa.id}</td>
                                     <td className={style.pTableBodyStrings}>{pessoa.nome}</td>
                                     <td>{util.formatarCPF(pessoa.cpf)}</td>
-                                    <td>{util.formatarData(pessoa.data_nascimento)}</td>
+                                    <td>{util.formatarData(pessoa.dataNascimento)}</td>
                                     <td>{util.formatarTelefone(pessoa.telefone)}</td>
                                     <td className={style.pTableBodyStrings}>{pessoa.endereco}</td>
                                     <td>{util.formatarAltura(pessoa.altura)}</td>
